@@ -1,0 +1,71 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+<block id="#`tX=633p1w6FN-Lp:_$" type="device_forever">
+<statement name="HANDLER">
+<block id="l=%_1@H!wa9$,PQ}7(qI" type="controls_if">
+<mutation elseif="0" else="1" />
+<value name="IF0">
+<shadow type="logic_boolean"><field name="BOOL">TRUE</field></shadow>
+<block type="logic_compare">
+<field name="OP">LT</field>
+<value name="A">
+<shadow type="math_number"><field name="NUM">0</field></shadow>
+<block type="sonarbit">
+<field name="Rjpin">PlanetX_Basic.DigitalRJPin.J1</field>
+<field name="distance_unit">PlanetX_Basic.Distance_Unit_List.Distance_Unit_cm</field>
+</block>
+</value>
+<value name="B">
+<shadow type="math_number">
+<field name="NUM">15</field>
+</shadow>
+</value>
+</block>
+</value>
+<statement name="DO0">
+<block id="S)|?Ez$iR`,DGR!zQ#rY" type="setMotorSpeed">
+<field name="motor">neZha.MotorList.M1</field>
+<value name="speed">
+<shadow type="math_number_minmax">
+<mutation min="-100" max="100" label="Speed" />
+<field name="SLIDER">50</field>
+</shadow>
+</value>
+<next>
+<block id="HLn;(Au2]EvB+Lg$L#)~" type="setMotorSpeed">
+<field name="motor">neZha.MotorList.M2</field>
+<value name="speed">
+<shadow type="math_number_minmax">
+<mutation min="-100" max="100" label="Speed" />
+<field name="SLIDER">50</field>
+</shadow>
+</value>
+</block>
+</next>
+</block>
+</statement>
+<statement name="ELSE">
+<block id="{0#UuYXC=6n86,E@cD*7" type="setMotorSpeed">
+<field name="motor">neZha.MotorList.M1</field>
+<value name="speed">
+<shadow type="math_number_minmax">
+<mutation min="-100" max="100" label="Speed" />
+<field name="SLIDER">50</field>
+</shadow>
+</value>
+<next>
+<block id="Sl8%Z`kp57XrG*z?Y1kz" type="setMotorSpeed">
+<field name="motor">neZha.MotorList.M2</field>
+<value name="speed">
+<shadow type="math_number_minmax">
+<mutation min="-100" max="100" label="Speed" />
+<field name="SLIDER">-50</field>
+</shadow>
+</value>
+</block>
+</next>
+</block>
+</statement>
+</block>
+</statement>
+</block>
+</xml>

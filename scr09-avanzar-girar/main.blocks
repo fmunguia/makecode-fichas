@@ -1,0 +1,60 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+<block id="bH-n8%lU[0lSU:sQoyg;" type="device_button_event">
+<field name="NAME">Button.A</field>
+<statement name="HANDLER">
+<block id="Bl;8[qXOMnV8]HoN~iZ?" type="setMotorSpeed">
+<field name="motor">neZha.MotorList.M1</field>
+<value name="speed">
+<shadow type="math_number_minmax">
+<mutation min="-100" max="100" label="Speed" />
+<field name="SLIDER">50</field>
+</shadow>
+</value>
+<next>
+<block id="rPv~TSsJh3OpW$.sA@?R" type="setMotorSpeed">
+<field name="motor">neZha.MotorList.M2</field>
+<value name="speed">
+<shadow type="math_number_minmax">
+<mutation min="-100" max="100" label="Speed" />
+<field name="SLIDER">50</field>
+</shadow>
+</value>
+<next>
+<block id="x;7q-[-(~.QrZnB(R5Mj" type="device_pause">
+<value name="pause">
+<shadow type="timePicker">
+<field name="ms">2000</field>
+</shadow>
+</value>
+<next>
+<block id="#lXx$S]D0qm)1=oMNmMB" type="setMotorSpeed">
+<field name="motor">neZha.MotorList.M2</field>
+<value name="speed">
+<shadow type="math_number_minmax">
+<mutation min="-100" max="100" label="Speed" />
+<field name="SLIDER">-50</field>
+</shadow>
+</value>
+<next>
+<block id=",Np`P^dNn4buod-:7/b|" type="device_pause">
+<value name="pause">
+<shadow type="timePicker">
+<field name="ms">500</field>
+</shadow>
+</value>
+<next>
+<block id="S#hGfoKZ9++@E,kTX(:#" type="stopAllMotor">
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+</block>
+</xml>

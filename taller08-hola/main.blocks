@@ -1,0 +1,18 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+<block id="xRRgvHNlG#rZ^u`HECiY" type="pxt-on-start">
+<statement name="HANDLER">
+<block id="c$GXT!0yUF/4gqqn%,IE" type="device_print_message">
+<value name="text">
+<shadow type="text">
+<field name="TEXT">Hola</field>
+</shadow>
+</value>
+<next>
+<block id="Wq@RHZysL5sa1:G3~pza" type="basic_show_icon">
+<field name="i">IconNames.Heart</field>
+</block>
+</next>
+</block>
+</statement>
+</block>
+</xml>

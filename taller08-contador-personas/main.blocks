@@ -1,0 +1,35 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+<block id="nK`:k7Ra2%x^[b[PD9Q3" type="device_button_event">
+<field name="NAME">Button.A</field>
+<statement name="HANDLER">
+<block id="i:^Z_j@/Is*9e(Do_%/l" type="variables_change">
+<field name="VAR">personas</field>
+<value name="VALUE">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+</value>
+<next>
+<block id="23hcWnltaUEP|BYsG.tE" type="device_show_number">
+<value name="number">
+<block type="variables_get">
+<field name="VAR">personas</field>
+</block>
+</value>
+</block>
+</next>
+</block>
+</statement>
+</block>
+<block id="xRRgvHNlG#rZ^u`HECiY" type="pxt-on-start">
+<statement name="HANDLER">
+<block id="o2B?yn0uCiLtzD@5{jh[" type="device_show_number">
+<value name="number">
+<block type="variables_get">
+<field name="VAR">personas</field>
+</block>
+</value>
+</block>
+</statement>
+</block>
+</xml>

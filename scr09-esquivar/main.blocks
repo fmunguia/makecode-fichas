@@ -1,0 +1,80 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+<block id=";]hnIgA]TkOW#LO{.](+" type="device_forever">
+<statement name="HANDLER">
+<block id="pS9``I7^{5zP2GoflN$I" type="controls_if">
+<mutation elseif="0" else="1" />
+<value name="IF0">
+<shadow type="logic_boolean"><field name="BOOL">TRUE</field></shadow>
+<block type="logic_compare">
+<field name="OP">LT</field>
+<value name="A">
+<shadow type="math_number"><field name="NUM">0</field></shadow>
+<block type="sonarbit">
+<field name="Rjpin">PlanetX_Basic.DigitalRJPin.J1</field>
+<field name="distance_unit">PlanetX_Basic.Distance_Unit_List.Distance_Unit_cm</field>
+</block>
+</value>
+<value name="B">
+<shadow type="math_number">
+<field name="NUM">15</field>
+</shadow>
+</value>
+</block>
+</value>
+<statement name="DO0">
+<block id="zzich@MmYH@d:PKMQ1]x" type="setMotorSpeed">
+<field name="motor">neZha.MotorList.M1</field>
+<value name="speed">
+<shadow type="math_number_minmax">
+<mutation min="-100" max="100" label="Speed" />
+<field name="SLIDER">50</field>
+</shadow>
+</value>
+<next>
+<block id="cz$P(XZAX%??9~CrDfT8" type="setMotorSpeed">
+<field name="motor">neZha.MotorList.M2</field>
+<value name="speed">
+<shadow type="math_number_minmax">
+<mutation min="-100" max="100" label="Speed" />
+<field name="SLIDER">-50</field>
+</shadow>
+</value>
+<next>
+<block id="${xNZ6YeY5n[y^n5#,|g" type="device_pause">
+<value name="pause">
+<shadow type="timePicker">
+<field name="ms">500</field>
+</shadow>
+</value>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+<statement name="ELSE">
+<block id="~Mk(3I@4[DBU(TKhoC{K" type="setMotorSpeed">
+<field name="motor">neZha.MotorList.M1</field>
+<value name="speed">
+<shadow type="math_number_minmax">
+<mutation min="-100" max="100" label="Speed" />
+<field name="SLIDER">50</field>
+</shadow>
+</value>
+<next>
+<block id="xUWBrU$EYbWP_Ar!W#J;" type="setMotorSpeed">
+<field name="motor">neZha.MotorList.M2</field>
+<value name="speed">
+<shadow type="math_number_minmax">
+<mutation min="-100" max="100" label="Speed" />
+<field name="SLIDER">50</field>
+</shadow>
+</value>
+</block>
+</next>
+</block>
+</statement>
+</block>
+</statement>
+</block>
+</xml>

@@ -1,0 +1,17 @@
+{
+    "name": "Placa robot (grupo 7)",
+    "version": "0.0.0",
+    "description": "Sistemas de Control y Robótica I, UD10: Ficha «Radio y Bluetooth con Micro:Bit»",
+    "dependencies": {
+        "core": "*",
+        "radio": "*",
+        "microphone": "*",
+        "pxt-nezha": "github:elecfreaks/pxt-nezha#v1.3.11"
+    },
+    "files": [
+        "main.blocks",
+        "main.ts",
+        "README.md"
+    ],
+    "preferredEditor": "blocksprj"
+}

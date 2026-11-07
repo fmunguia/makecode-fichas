@@ -1,0 +1,49 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+<block id="0q-s={o]d3@W3`X+w5_d" type="device_forever">
+<statement name="HANDLER">
+<block id="/(gL+Nuj-QOa;]BB+s+@" type="controls_if">
+<mutation elseif="0" else="1" />
+<value name="IF0">
+<shadow type="logic_boolean"><field name="BOOL">TRUE</field></shadow>
+<block type="logic_compare">
+<field name="OP">LT</field>
+<value name="A">
+<shadow type="math_number"><field name="NUM">0</field></shadow>
+<block type="sonarbit">
+<field name="Rjpin">PlanetX_Basic.DigitalRJPin.J1</field>
+<field name="distance_unit">PlanetX_Basic.Distance_Unit_List.Distance_Unit_cm</field>
+</block>
+</value>
+<value name="B">
+<shadow type="math_number">
+<field name="NUM">10</field>
+</shadow>
+</value>
+</block>
+</value>
+<statement name="DO0">
+<block id="b(k201v8Y7HL8iFk@[{2" type="setServoAngel">
+<field name="servoType">neZha.ServoTypeList._180</field>
+<field name="servo">neZha.ServoList.S1</field>
+<value name="angle">
+<shadow type="math_number">
+<field name="NUM">90</field>
+</shadow>
+</value>
+</block>
+</statement>
+<statement name="ELSE">
+<block id=":-Ln4qX--w*AITH~+qJd" type="setServoAngel">
+<field name="servoType">neZha.ServoTypeList._180</field>
+<field name="servo">neZha.ServoList.S1</field>
+<value name="angle">
+<shadow type="math_number">
+<field name="NUM">0</field>
+</shadow>
+</value>
+</block>
+</statement>
+</block>
+</statement>
+</block>
+</xml>

@@ -1,0 +1,66 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+<block id="!qz:uKn@mhS##AN1fW$8" type="device_gesture_event">
+<field name="NAME">Gesture.Shake</field>
+<statement name="HANDLER">
+<block id="p0F=9iehTxQ,%HeH-)]N" type="variables_set">
+<field name="VAR">tirada</field>
+<value name="VALUE">
+<shadow type="math_number"><field name="NUM">0</field></shadow>
+<block type="device_random">
+<value name="min">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+</value>
+<value name="limit">
+<shadow type="math_number">
+<field name="NUM">6</field>
+</shadow>
+</value>
+</block>
+</value>
+<next>
+<block id="o:38Ti:u`o|89vE-2_7w" type="controls_repeat_ext">
+<value name="TIMES">
+<shadow type="math_whole_number">
+<field name="NUM">3</field>
+</shadow>
+</value>
+<statement name="DO">
+<block id="YS?Z*v(X#zvM(WFVhG*v" type="basic_show_icon">
+<field name="i">IconNames.Square</field>
+<next>
+<block id="v.=gEnD+GC9OOJ?G*VjY" type="device_clear_display">
+</block>
+</next>
+</block>
+</statement>
+<next>
+<block id="O*hL?+pNgf{C5JFz8!.N" type="device_show_number">
+<value name="number">
+<block type="variables_get">
+<field name="VAR">tirada</field>
+</block>
+</value>
+<next>
+<block id="(6REo6E~,vT%Lf(AnwTq" type="device_play_note">
+<value name="note">
+<shadow type="device_note">
+<field name="name">523</field>
+</shadow>
+</value>
+<value name="duration">
+<shadow type="device_beat">
+<field name="fraction">BeatFraction.Quarter</field>
+</shadow>
+</value>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+</block>
+</xml>

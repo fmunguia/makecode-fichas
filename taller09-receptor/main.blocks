@@ -1,0 +1,49 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+<block id="S%=x@ZmDvnmbZTR{0hd:" type="radio_on_number_drag">
+<value name="HANDLER_DRAG_PARAM_receivedNumber">
+<block type="argument_reporter_number">
+<mutation duplicateondrag="true" />
+<field name="VALUE">receivedNumber</field>
+</block>
+</value>
+<statement name="HANDLER">
+<block id="*K@JZ=PWUAYqBDN78qiz" type="controls_if">
+<mutation elseif="0" else="0" />
+<value name="IF0">
+<shadow type="logic_boolean"><field name="BOOL">TRUE</field></shadow>
+<block type="logic_compare">
+<field name="OP">EQ</field>
+<value name="A">
+<shadow type="math_number"><field name="NUM">0</field></shadow>
+<block type="argument_reporter_number">
+<field name="VALUE">receivedNumber</field>
+</block>
+</value>
+<value name="B">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+</value>
+</block>
+</value>
+<statement name="DO0">
+<block id="HnB?F5_k``@fa:)I{-/." type="basic_show_icon">
+<field name="i">IconNames.Heart</field>
+</block>
+</statement>
+</block>
+</statement>
+</block>
+<block id="xRRgvHNlG#rZ^u`HECiY" type="pxt-on-start">
+<statement name="HANDLER">
+<block id="`6cvB`^Nr/lkZ;MR~8tG" type="radio_set_group">
+<value name="ID">
+<shadow type="math_number_minmax">
+<mutation min="0" max="255" label="Id" />
+<field name="SLIDER">7</field>
+</shadow>
+</value>
+</block>
+</statement>
+</block>
+</xml>

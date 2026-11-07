@@ -1,0 +1,13 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+<block id="17}ArHQnqO.`o?kh(*~B" type="device_button_event">
+<field name="NAME">Button.A</field>
+<statement name="HANDLER">
+<block id="5bP+A(F7+PA!/@KxYK%o" type="device_show_number">
+<value name="number">
+<block type="device_temperature">
+</block>
+</value>
+</block>
+</statement>
+</block>
+</xml>

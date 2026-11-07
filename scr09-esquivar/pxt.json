@@ -1,0 +1,18 @@
+{
+    "name": "Esquivar obstáculos (Nezha)",
+    "version": "0.0.0",
+    "description": "Sistemas de Control y Robótica I, UD09: Ficha «Un robot que esquiva obstáculos»",
+    "dependencies": {
+        "core": "*",
+        "radio": "*",
+        "microphone": "*",
+        "pxt-nezha": "github:elecfreaks/pxt-nezha#v1.3.11",
+        "pxt-PlanetX": "github:elecfreaks/pxt-PlanetX#v1.6.10"
+    },
+    "files": [
+        "main.blocks",
+        "main.ts",
+        "README.md"
+    ],
+    "preferredEditor": "blocksprj"
+}

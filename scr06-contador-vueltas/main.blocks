@@ -1,0 +1,24 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+<block id="Ilm~)RnPeD5wniB4m#uO" type="device_button_event">
+<field name="NAME">Button.A</field>
+<statement name="HANDLER">
+<block id="{%lfTZ(`V%_:mg9eIpl(" type="variables_change">
+<field name="VAR">vueltas</field>
+<value name="VALUE">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+</value>
+<next>
+<block id="[0G/+_D^]`Y+pgWYOit:" type="device_show_number">
+<value name="number">
+<block type="variables_get">
+<field name="VAR">vueltas</field>
+</block>
+</value>
+</block>
+</next>
+</block>
+</statement>
+</block>
+</xml>

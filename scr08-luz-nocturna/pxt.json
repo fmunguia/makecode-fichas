@@ -1,0 +1,16 @@
+{
+    "name": "Luz nocturna: leer un sensor y encender un actuador",
+    "version": "0.0.0",
+    "description": "Sistemas de Control y Robótica I, UD08: Paso a paso «Leer un sensor y encender un actuador» y práctica «Luz nocturna»",
+    "dependencies": {
+        "core": "*",
+        "radio": "*",
+        "microphone": "*"
+    },
+    "files": [
+        "main.blocks",
+        "main.ts",
+        "README.md"
+    ],
+    "preferredEditor": "blocksprj"
+}

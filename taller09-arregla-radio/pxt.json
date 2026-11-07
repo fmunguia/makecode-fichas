@@ -1,0 +1,16 @@
+{
+    "name": "Arregla el receptor",
+    "version": "0.0.0",
+    "description": "Taller de programación y robótica, UD09: Ficha «Comunicación por radio» (actividad nueva)",
+    "dependencies": {
+        "core": "*",
+        "radio": "*",
+        "microphone": "*"
+    },
+    "files": [
+        "main.blocks",
+        "main.ts",
+        "README.md"
+    ],
+    "preferredEditor": "blocksprj"
+}

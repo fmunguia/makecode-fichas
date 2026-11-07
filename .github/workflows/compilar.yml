@@ -1,0 +1,58 @@
+# Compila cada proyecto con el compilador de MakeCode (pxt) y guarda los .hex.
+# Si un programa tiene un error, el run sale en rojo y dice cuál.
+name: Compilar proyectos
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  compilar:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Instalar MakeCode para micro:bit
+        run: |
+          mkdir -p "$RUNNER_TEMP/pxt" && cd "$RUNNER_TEMP/pxt"
+          npm init -y > /dev/null
+          npm install --no-audit --no-fund pxt pxt-microbit
+          npx pxt target microbit
+
+      - name: Compilar
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          mkdir -p hex
+          fallos=""
+          for d in */; do
+            d="${d%/}"
+            [ -f "$d/pxt.json" ] || continue
+            echo "::group::$d"
+            rm -rf "$RUNNER_TEMP/pxt/proyectos/$d" && mkdir -p "$RUNNER_TEMP/pxt/proyectos"
+            cp -r "$d" "$RUNNER_TEMP/pxt/proyectos/$d"
+            if (cd "$RUNNER_TEMP/pxt/proyectos/$d" && npx pxt install && npx pxt build); then
+              cp "$RUNNER_TEMP/pxt/proyectos/$d/built/binary.hex" "hex/$d.hex"
+            else
+              fallos="$fallos $d"
+            fi
+            echo "::endgroup::"
+          done
+          if [ -n "$fallos" ]; then
+            echo "::error::No compilan:$fallos"
+            exit 1
+          fi
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: hex
+          path: hex/*.hex
+          if-no-files-found: ignore

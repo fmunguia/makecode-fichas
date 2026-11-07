@@ -1,0 +1,6 @@
+basic.showNumber(3)
+music.playTone(262, music.beat(BeatFraction.Whole))
+basic.showNumber(2)
+music.playTone(262, music.beat(BeatFraction.Whole))
+basic.showNumber(1)
+music.playTone(523, music.beat(BeatFraction.Breve))

@@ -1,0 +1,56 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+<block id="wQqNK2iYx8fzAea-tcu$" type="device_forever">
+<statement name="HANDLER">
+<block id="`SG{)ej`KTqEAb+1$lYK" type="controls_if">
+<mutation elseif="0" else="1" />
+<value name="IF0">
+<shadow type="logic_boolean"><field name="BOOL">TRUE</field></shadow>
+<block type="logic_compare">
+<field name="OP">GT</field>
+<value name="A">
+<shadow type="math_number"><field name="NUM">0</field></shadow>
+<block type="device_temperature">
+</block>
+</value>
+<value name="B">
+<shadow type="math_number">
+<field name="NUM">25</field>
+</shadow>
+</value>
+</block>
+</value>
+<statement name="DO0">
+<block id="[.I6b0B:^6m(3S{ll?+$" type="setMotorSpeed">
+<field name="motor">neZha.MotorList.M1</field>
+<value name="speed">
+<shadow type="math_number_minmax">
+<mutation min="-100" max="100" label="Speed" />
+<field name="SLIDER">80</field>
+</shadow>
+</value>
+</block>
+</statement>
+<statement name="ELSE">
+<block id="4Xl,$lfft5#N!KI)De+n" type="setMotorSpeed">
+<field name="motor">neZha.MotorList.M1</field>
+<value name="speed">
+<shadow type="math_number_minmax">
+<mutation min="-100" max="100" label="Speed" />
+<field name="SLIDER">0</field>
+</shadow>
+</value>
+</block>
+</statement>
+<next>
+<block id="!=DAWABY1l;8vb2fY:aE" type="device_pause">
+<value name="pause">
+<shadow type="timePicker">
+<field name="ms">500</field>
+</shadow>
+</value>
+</block>
+</next>
+</block>
+</statement>
+</block>
+</xml>

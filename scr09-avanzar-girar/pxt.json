@@ -1,0 +1,17 @@
+{
+    "name": "Avanzar dos segundos y girar (Nezha)",
+    "version": "0.0.0",
+    "description": "Sistemas de Control y Robótica I, UD09: Ficha «Programamos los motores»",
+    "dependencies": {
+        "core": "*",
+        "radio": "*",
+        "microphone": "*",
+        "pxt-nezha": "github:elecfreaks/pxt-nezha#v1.3.11"
+    },
+    "files": [
+        "main.blocks",
+        "main.ts",
+        "README.md"
+    ],
+    "preferredEditor": "blocksprj"
+}

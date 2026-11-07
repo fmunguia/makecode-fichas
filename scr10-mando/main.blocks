@@ -1,0 +1,26 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+<block id="l-]Q!FUulM|P]v!/xsil" type="device_button_event">
+<field name="NAME">Button.A</field>
+<statement name="HANDLER">
+<block id="m?_{R8=NvzW-H$KZ15{j" type="radio_datagram_send">
+<value name="value">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+</value>
+</block>
+</statement>
+</block>
+<block id="xRRgvHNlG#rZ^u`HECiY" type="pxt-on-start">
+<statement name="HANDLER">
+<block id="Fwa.(ys}ZYVmt^3;}Le4" type="radio_set_group">
+<value name="ID">
+<shadow type="math_number_minmax">
+<mutation min="0" max="255" label="Id" />
+<field name="SLIDER">7</field>
+</shadow>
+</value>
+</block>
+</statement>
+</block>
+</xml>

@@ -1,0 +1,40 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+<block id="s_I8IvH!$R~J7fgG==Uv" type="device_button_event">
+<field name="NAME">Button.A</field>
+<statement name="HANDLER">
+<block id="C^Eff7TTqzT2~8e*qyxc" type="setMotorSpeed">
+<field name="motor">neZha.MotorList.M1</field>
+<value name="speed">
+<shadow type="math_number_minmax">
+<mutation min="-100" max="100" label="Speed" />
+<field name="SLIDER">50</field>
+</shadow>
+</value>
+<next>
+<block id="1X#|lvU($e#?DX%^_J1v" type="setMotorSpeed">
+<field name="motor">neZha.MotorList.M2</field>
+<value name="speed">
+<shadow type="math_number_minmax">
+<mutation min="-100" max="100" label="Speed" />
+<field name="SLIDER">-50</field>
+</shadow>
+</value>
+<next>
+<block id="ZuH98l7(LEHwO!uH_*?}" type="device_pause">
+<value name="pause">
+<shadow type="timePicker">
+<field name="ms">2000</field>
+</shadow>
+</value>
+<next>
+<block id="QYvFRs-X|@n@1Z/fMZs/" type="stopAllMotor">
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+</block>
+</xml>

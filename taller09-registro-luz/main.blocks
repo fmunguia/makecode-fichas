@@ -1,0 +1,26 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+<block id="mvNRjT3B5/AAd#;KC3xe" type="device_forever">
+<statement name="HANDLER">
+<block id="),@]c.*xG/Y4]eVn]t`H" type="serial_writevalue">
+<value name="name">
+<shadow type="text">
+<field name="TEXT">luz</field>
+</shadow>
+</value>
+<value name="value">
+<block type="device_get_light_level">
+</block>
+</value>
+<next>
+<block id="F8qFMG[#ie(C;!~Khas!" type="device_pause">
+<value name="pause">
+<shadow type="timePicker">
+<field name="ms">1000</field>
+</shadow>
+</value>
+</block>
+</next>
+</block>
+</statement>
+</block>
+</xml>

@@ -1,0 +1,28 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+<block id="FCWTtz^Mml_vnV0Ic;{B" type="device_button_event">
+<field name="NAME">Button.A</field>
+<statement name="HANDLER">
+<block id="5`Q44-8#;up)!ZFk;^/," type="basic_show_icon">
+<field name="i">IconNames.QuarterNote</field>
+<next>
+<block id="op!4s~7I`QC{9}ns)ER|" type="device_play_note">
+<value name="note">
+<shadow type="device_note">
+<field name="name">262</field>
+</shadow>
+</value>
+<value name="duration">
+<shadow type="device_beat">
+<field name="fraction">BeatFraction.Whole</field>
+</shadow>
+</value>
+<next>
+<block id=",5FwJf/ZeU2!Z{%qy{jj" type="device_clear_display">
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+</block>
+</xml>

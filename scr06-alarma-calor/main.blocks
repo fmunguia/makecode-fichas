@@ -1,0 +1,51 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+<block id="QO-ZpZIg:U}kwjgSyFA;" type="device_forever">
+<statement name="HANDLER">
+<block id="lMW/r?9=@`7G7oxqk1RJ" type="controls_if">
+<mutation elseif="0" else="1" />
+<value name="IF0">
+<shadow type="logic_boolean"><field name="BOOL">TRUE</field></shadow>
+<block type="logic_compare">
+<field name="OP">GT</field>
+<value name="A">
+<shadow type="math_number"><field name="NUM">0</field></shadow>
+<block type="device_temperature">
+</block>
+</value>
+<value name="B">
+<shadow type="math_number">
+<field name="NUM">28</field>
+</shadow>
+</value>
+</block>
+</value>
+<statement name="DO0">
+<block id="T9l8gt2sYE$ltWX(pxhk" type="basic_show_icon">
+<field name="i">IconNames.Sad</field>
+</block>
+</statement>
+<statement name="ELSE">
+<block id="-mugAWDZ!Wakn2Pi(bqB" type="basic_show_icon">
+<field name="i">IconNames.Happy</field>
+</block>
+</statement>
+<next>
+<block id="J`M*0~l_d+cmLU{eO%1V" type="device_pause">
+<value name="pause">
+<shadow type="timePicker">
+<field name="ms">1000</field>
+</shadow>
+</value>
+</block>
+</next>
+</block>
+</statement>
+</block>
+<block id="xRRgvHNlG#rZ^u`HECiY" type="pxt-on-start">
+<statement name="HANDLER">
+<block id="R=rxWfS}No%=0?y4Wj8)" type="basic_show_icon">
+<field name="i">IconNames.Heart</field>
+</block>
+</statement>
+</block>
+</xml>
