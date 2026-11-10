@@ -49,12 +49,14 @@ for (const carpeta of carpetas) {
     if (!r.ok) throw new Error(`${carpeta}: MakeCode respondió ${r.status} ${await r.text()}`);
     const res = await r.json();
     const id = res.shortid || res.id;
-    enlaces[carpeta] = { id, enlace: `https://makecode.microbit.org/#pub:${id}`, hash };
+    enlaces[carpeta] = { id, hash };
     console.log(`${carpeta}: ${enlaces[carpeta].enlace}`);
     cambios++;
     await new Promise(ok => setTimeout(ok, 1000));
 }
 for (const c of Object.keys(enlaces)) if (!carpetas.includes(c)) delete enlaces[c];
+// Enlace directo al editor, en español
+for (const e of Object.values(enlaces)) e.enlace = `https://makecode.microbit.org/?lang=es#pub:${e.id}`;
 fs.writeFileSync(archivoEnlaces, JSON.stringify(enlaces, null, 2) + "\n");
 
 // Las mismas líneas que van en comun/makecode-enlaces.tex del repositorio de los libros
