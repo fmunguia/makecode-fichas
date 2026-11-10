@@ -1,0 +1,19 @@
+name: Probar enlaces e idioma
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['herramientas/probar-idioma.mjs', '.github/workflows/probar-idioma.yml']
+jobs:
+  probar:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: |
+          npm init -y > /dev/null
+          npm install --no-audit --no-fund playwright
+          npx playwright install --with-deps chromium
+      - run: node herramientas/probar-idioma.mjs
