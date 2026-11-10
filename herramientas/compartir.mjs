@@ -61,3 +61,15 @@ fs.writeFileSync(archivoEnlaces, JSON.stringify(enlaces, null, 2) + "\n");
 const tex = Object.entries(enlaces).map(([c, e]) => `\\enlaceMakeCode{${c}}{${e.enlace}}`).join("\n") + "\n";
 fs.writeFileSync(path.join(raiz, "enlaces.tex"), tex);
 console.log(`${cambios} proyectos compartidos de nuevo, ${carpetas.length} en total.`);
+
+// Comprobación: cada enlace devuelve el mismo programa que hay en la carpeta
+let malos = 0;
+for (const [carpeta, e] of Object.entries(enlaces)) {
+    const r = await fetch(`https://www.makecode.com/api/${e.id}/text`);
+    const texto = r.ok ? await r.json() : null;
+    const local = fs.readFileSync(path.join(raiz, carpeta, "main.ts"), "utf8");
+    const ok = texto && texto["main.ts"] === local && (texto["main.blocks"] || "").length > 0;
+    if (!ok) { malos++; console.log(`✗ ${carpeta}: el enlace ${e.enlace} no devuelve el programa (${r.status})`); }
+}
+console.log(malos ? `${malos} enlaces con problemas` : "✓ Los enlaces devuelven sus programas con bloques");
+if (malos) process.exit(1);
