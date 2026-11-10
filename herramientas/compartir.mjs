@@ -56,7 +56,7 @@ for (const carpeta of carpetas) {
 }
 for (const c of Object.keys(enlaces)) if (!carpetas.includes(c)) delete enlaces[c];
 // Enlace directo al editor, en español
-for (const e of Object.values(enlaces)) e.enlace = `https://makecode.microbit.org/?lang=es#pub:${e.id}`;
+for (const e of Object.values(enlaces)) e.enlace = `https://makecode.microbit.org/?lang=es-ES#pub:${e.id}`;
 fs.writeFileSync(archivoEnlaces, JSON.stringify(enlaces, null, 2) + "\n");
 
 // Las mismas líneas que van en comun/makecode-enlaces.tex del repositorio de los libros

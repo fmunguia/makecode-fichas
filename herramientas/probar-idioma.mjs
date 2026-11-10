@@ -1,21 +1,23 @@
-// Abre enlaces de MakeCode en un navegador y dice en qué idioma salen y si carga el proyecto.
+// Abre en un navegador (configurado en inglés) cada enlace de enlaces.json y comprueba que
+// MakeCode sale en español y con los bloques del proyecto, extensiones incluidas.
+import fs from "node:fs";
 import { chromium } from "playwright";
-const id = process.argv[2] || "_Po2P5vP96hV2";
-const urls = [
-    `https://makecode.microbit.org/?lang=es#pub:${id}`,
-    `https://makecode.microbit.org/?lang=es-ES#pub:${id}`,
-    `https://makecode.microbit.org/#pub:${id}`,
-];
+const enlaces = JSON.parse(fs.readFileSync("enlaces.json", "utf8"));
 const browser = await chromium.launch();
-for (const url of urls) {
-    const page = await browser.newPage({ locale: "en-US" }); // navegador en inglés, como el peor caso
-    await page.goto(url, { waitUntil: "domcontentloaded", timeout: 90000 });
-    try { await page.waitForSelector(".blocklyTreeLabel", { timeout: 90000 }); } catch (e) { }
-    await page.waitForTimeout(5000);
-    const categorias = await page.$$eval(".blocklyTreeLabel", els => els.map(e => e.textContent).slice(0, 6));
-    const bloques = await page.$$eval(".blocklyText", els => els.map(e => e.textContent).slice(0, 8));
-    const lang = await page.evaluate(() => document.documentElement.lang);
-    console.log(`\n${url}\n  html lang: ${lang}\n  categorías: ${categorias.join(" | ")}\n  bloques: ${bloques.join(" | ")}`);
+let malos = 0;
+for (const [carpeta, e] of Object.entries(enlaces)) {
+    const page = await browser.newPage({ locale: "en-US" });
+    await page.goto(e.enlace, { waitUntil: "domcontentloaded", timeout: 90000 });
+    try { await page.waitForSelector(".blocklyTreeLabel", { timeout: 90000 }); } catch (err) { }
+    await page.waitForTimeout(4000);
+    const categorias = await page.$$eval(".blocklyTreeLabel", els => els.map(x => x.textContent));
+    const bloques = await page.$$eval(".blocklyDraggable", els => els.length);
+    const espanol = categorias.includes("Básico");
+    const ok = espanol && bloques > 0;
+    if (!ok) malos++;
+    console.log(`${ok ? "✓" : "✗"} ${carpeta}: ${espanol ? "español" : "NO español"}, ${bloques} bloques, categorías: ${categorias.slice(0, 12).join(" | ")}`);
     await page.close();
 }
 await browser.close();
+console.log(malos ? `${malos} enlaces con problemas` : "✓ Todos los enlaces abren en español con sus bloques");
+if (malos) process.exit(1);
