@@ -1,0 +1,35 @@
+# Comparte en MakeCode los proyectos que han cambiado y guarda sus enlaces directos
+# en enlaces.json y enlaces.tex (este último se copia a comun/makecode-enlaces.tex de los libros).
+name: Compartir en MakeCode
+
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - 'enlaces.json'
+      - 'enlaces.tex'
+      - '**.md'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: compartir
+  cancel-in-progress: false
+
+jobs:
+  compartir:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node herramientas/compartir.mjs
+      - name: Guardar los enlaces
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898731+github-actions[bot]@users.noreply.github.com"
+          git add enlaces.json enlaces.tex
+          git diff --cached --quiet || (git commit -m "Enlaces directos de MakeCode" && git push)
